@@ -18,16 +18,16 @@ while true; do
     LB_COUNT=$((LB_COUNT + 1))
 
     notify-send "🍅 Focus session #$COUNT" "$FOCUS_MIN minute session" && pw-play /usr/share/sounds/freedesktop/stereo/message.oga
-    echo "[$0]: Focus session #$COUNT started"
+    printf "[$0]: Focus session #$COUNT started\n"
     sleep "$FOCUS_SEC"
 
     if [ $((COUNT % 4)) -eq 0 ]; then
         notify-send "🍅 Long break" "$LONG_BREAK_MIN minute break" && pw-play /usr/share/sounds/freedesktop/stereo/complete.oga
-        echo "[$0]: Long break #$LB_COUNT started"
+        printf "[$0]: Long break #$LB_COUNT started\n"
         sleep "$LONG_BREAK_SEC"
     else
         notify-send "🍅 Take a break" "$BREAK_MIN minute break" && pw-play /usr/share/sounds/freedesktop/stereo/complete.oga
-        echo "[$0]: Break #$COUNT started"
+        printf "[$0]: Break #$COUNT started\n"
         sleep "$BREAK_SEC"
     fi
 done
