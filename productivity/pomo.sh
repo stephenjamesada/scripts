@@ -1,6 +1,7 @@
 #!/bin/sh
 
 COUNT=0
+LB_COUNT=0
 
 FOCUS_MIN=${1:-25}
 BREAK_MIN=${2:-5}
@@ -14,6 +15,7 @@ trap 'notify-send "🍅 Timer closed" "Goodbye!" && pw-play /usr/share/sounds/fr
 
 while true; do
     COUNT=$((COUNT + 1))
+    LB_COUNT=$((LB_COUNT + 1))
 
     notify-send "🍅 Focus session #$COUNT" "$FOCUS_MIN minute session" && pw-play /usr/share/sounds/freedesktop/stereo/message.oga
     echo "[$0]: Focus session #$COUNT started\n"
@@ -21,7 +23,7 @@ while true; do
 
     if [ $((COUNT % 4)) -eq 0 ]; then
         notify-send "🍅 Long break" "$LONG_BREAK_MIN minute break" && pw-play /usr/share/sounds/freedesktop/stereo/complete.oga
-        echo "[$0]: Long break #$COUNT started\n"
+        echo "[$0]: Long break #$LB_COUNT started\n"
         sleep "$LONG_BREAK_SEC"
     else
         notify-send "🍅 Take a break" "$BREAK_MIN minute break" && pw-play /usr/share/sounds/freedesktop/stereo/complete.oga
