@@ -4,8 +4,6 @@ This README will act as a dependency log, to list any prerequisite tools you mus
 
 ## How to Use
 
-This will show you how to 
-
 Example: `new-host.sh`
 
 ```bash
