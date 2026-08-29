@@ -51,7 +51,7 @@ main() {
 
     JSON=$(jo host="$RESOLVED" port="$PORT" ping="$PING_RESULT" route-status="$ROUTE_STATUS" dns-query-time="$QUERY_TIME" port-status="$PORT_STATUS")
 
-    echo "$JSON" | jq .
+    echo "$JSON" | mlr --json --opprint cat
     }
 
 main "$@"

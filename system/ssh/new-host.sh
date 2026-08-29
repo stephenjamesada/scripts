@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 FILE=~/.ssh/config
-HOST=$1
-IP=$2
-USER=$3
-PORT=$4
+HOST=${1:?alias required}
+IP=${2:?missing IP}
+USER=${3:?missing user}
+PORT=${4:-22}
 
 (( $# == 4 )) || {
     echo "Usage: $0 <host> <ip> <user> <port>"
